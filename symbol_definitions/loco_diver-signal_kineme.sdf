@@ -47,29 +47,34 @@
     </kineme>
 
     <kineme name="Attention" id="attention">
-        <knode-abs step="0" description="Roll over ">
-            <orientation roll="30" pitch="0" yaw="0"></orientation>
+        <knode-abs step="0" description="spin 1/4">
+            <orientation roll="0" pitch="0" yaw="90"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
-        <knode-abs step="1" description="Roll back over">
-            <orientation roll="-60" pitch="0" yaw="0"></orientation>
+        <knode-abs step="1" description="spin 2/4">
+            <orientation roll="0" pitch="0" yaw="90"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
-            <duration seconds="2"></duration>
+            <duration seconds="1"></duration>
         </knode-abs>
-        <knode-abs step="2" description="Roll back over">
-            <orientation roll="60" pitch="0" yaw="0"></orientation>
+        <knode-abs step="2" description="spin 3/4">
+            <orientation roll="0" pitch="0" yaw="90"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
-            <duration seconds="2"></duration>
+            <duration seconds="1"></duration>
         </knode-abs>
-        <knode-abs step="3" description="Roll back over">
-            <orientation roll="-60" pitch="0" yaw="0"></orientation>
+        <knode-abs step="3" description="spin 4/4">
+            <orientation roll="0" pitch="0" yaw="90"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
-            <duration seconds="2"></duration>
+            <duration seconds="1"></duration>
         </knode-abs>
-        <knode-abs step="4" description="Roll back to center">
-            <orientation roll="30" pitch="0" yaw="0"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
+        <knode-abs step="4" description="Forward">
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="0.5" sway="0" heave="0"></velocity>
+            <duration seconds="1"></duration>
+        </knode-abs>
+        <knode-abs step="5" description="Forward">
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="-0.5" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
     </kineme>
@@ -100,22 +105,22 @@
 
     <kineme name="Follow Me" id="follow_me">
         <knode-abs step="0" description="Beckon up 1">
-            <orientation roll="10" pitch="15" yaw="15"></orientation>
+            <orientation roll="0" pitch="15" yaw="15"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
         <knode-abs step="1" description="Back down to center">
-            <orientation roll="-10" pitch="-15" yaw="-15"></orientation>
+            <orientation roll="0" pitch="-15" yaw="-15"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
         <knode-abs step="2" description="Beckon up 2">
-            <orientation roll="10" pitch="15" yaw="15"></orientation>
+            <orientation roll="0" pitch="15" yaw="15"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
         <knode-abs step="3" description="Back down to center">
-            <orientation roll="-10" pitch="-15" yaw="-15"></orientation>
+            <orientation roll="0" pitch="-15" yaw="-15"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
@@ -175,22 +180,22 @@
 
     <kineme name="Come To Me" id="come">
         <knode-abs step="0" description="Beckon up 1">
-            <orientation roll="10" pitch="15" yaw="15"></orientation>
+            <orientation roll="0" pitch="15" yaw="15"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
         <knode-abs step="1" description="Back down to center">
-            <orientation roll="-10" pitch="-15" yaw="-15"></orientation>
+            <orientation roll="0" pitch="-15" yaw="-15"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
         <knode-abs step="2" description="Beckon up 2">
-            <orientation roll="10" pitch="15" yaw="15"></orientation>
+            <orientation roll="0" pitch="15" yaw="15"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
         <knode-abs step="3" description="Back down to center">
-            <orientation roll="-10" pitch="-15" yaw="-15"></orientation>
+            <orientation roll="0" pitch="-15" yaw="-15"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
@@ -269,17 +274,33 @@
 
     <kineme name="Malfunction" id="malfunction">
         <knode-abs step="0" description="">
-            <orientation roll="180" pitch="0" yaw="0"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
-            <duration seconds="2"></duration>
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
+            <duration seconds="0.5"></duration>
         </knode-abs>
-        <knode-pause step="4" description="Wait">
-            <duration seconds="4"></duration>
+        <knode-pause step="1" description="Wait">
+            <duration seconds="0.25"></duration>
+        </knode-pause>
+        <knode-abs step="2" description="">
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
+            <duration seconds="0.5"></duration>
+        </knode-abs>
+        <knode-pause step="3" description="Wait">
+            <duration seconds="0.25"></duration>
+        </knode-pause>
+        <knode-abs step="4" description="">
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
+            <duration seconds="0.5"></duration>
+        </knode-abs>
+        <knode-pause step="5" description="Wait">
+            <duration seconds="2"></duration>
         </knode-pause>
         <knode-abs step="0" description="">
-            <orientation roll="-180" pitch="0" yaw="0"></orientation>
+            <orientation roll="0" pitch="-90" yaw="0"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
-            <duration seconds="2"></duration>
+            <duration seconds="5"></duration>
         </knode-abs>
     </kineme>
 
@@ -288,23 +309,23 @@
             <duration seconds="2"></duration>
         </knode-dir>
         <knode-abs step="1" description="">
-            <orientation roll="15" pitch="0" yaw="0"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
         <knode-abs step="2" description="">
-            <orientation roll="-30" pitch="0" yaw="0"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
-            <duration seconds="1"></duration>
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="-0.2" sway="0" heave="0"></velocity>
+            <duration seconds="2"></duration>
         </knode-abs>
         <knode-abs step="3" description="">
-            <orientation roll="30" pitch="0" yaw="0"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
-            <duration seconds="1"></duration>
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
+            <duration seconds="2"></duration>
         </knode-abs>
         <knode-abs step="4" description="">
-            <orientation roll="-15" pitch="0" yaw="0"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
+            <orientation roll="0" pitch="0" yaw="0"></orientation>
+            <velocity surge="-0.2" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
     </kineme>
@@ -418,5 +439,3 @@
         </knode-abs>
     </kineme>
 </kinemes>
-
-
