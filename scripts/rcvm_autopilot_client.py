@@ -41,11 +41,11 @@ import tf
 import sys
 from math import pi
 from std_msgs.msg import Float32 
-from aquacore.msg import Command
-from aquacore.msg import AutopilotModes
+from loco_pilot.msg import Command
+from loco_pilot.msg import AutopilotModes
 from geometry_msgs.msg import PoseStamped
-from aquacore.msg import StateMsg
-from aquacore.srv import SetAutopilotMode  
+from loco_pilot.srv import SetAutopilotMode
+from mavros_msgs.msg import VFR_HUD 
 import dynamic_reconfigure.client
 
 from timeout import Timeout
@@ -55,24 +55,24 @@ class RCVMPilotClient:
     def __init__(self, params):
         self.mode = params['mode']
         self.listener = tf.TransformListener()
-        self.target_pose_pub = rospy.Publisher('/aqua/target_pose', PoseStamped, queue_size=3)
+        self.target_pose_pub = rospy.Publisher('/loco/target_pose', PoseStamped, queue_size=3)
         self.current_depth = 0
 
-        rospy.wait_for_service('/aqua/set_3Dauto_mode')
-        rospy.wait_for_message('/AP_filtered_depth', Float32)
+        rospy.wait_for_service('/loco/set_3Dauto_mode')
+        # rospy.wait_for_message('/AP_filtered_depth', Float32)
         
-        self.depth_sub = rospy.Subscriber("/AP_filtered_depth", Float32, self.depth_callback)
-        self.set_3d_auto_mode = rospy.ServiceProxy('/aqua/set_3Dauto_mode', SetAutopilotMode)
+        self.depth_sub = rospy.Subscriber("/mavros/vfr_hud", VFR_HUD, self.depth_callback)
+        self.set_3d_auto_mode = rospy.ServiceProxy('/loco/set_3Dauto_mode', SetAutopilotMode)
         
-        self.listener.waitForTransform('/latest_fix', '/aqua_base', rospy.Time(0), rospy.Duration(4))
+        self.listener.waitForTransform('/odom', '/base_link', rospy.Time(0), rospy.Duration(4))
 
-        self.dyn_reconf = dynamic_reconfigure.client.Client("/AP_depth_filter", timeout=5)  
-        self.original_params = self.dyn_reconf.get_configuration(timeout=5) 
-        print('Previous value of window_size_sec  was: ' + str(self.original_params['window_size_sec']))
+        # self.dyn_reconf = dynamic_reconfigure.client.Client("/AP_depth_filter", timeout=5)  
+        # self.original_params = self.dyn_reconf.get_configuration(timeout=5) 
+        # print('Previous value of window_size_sec  was: ' + str(self.original_params['window_size_sec']))
 
-        rospy.loginfo('Setting window_size_sec to ' + str(0.5)) 
-        self.dyn_reconf.update_configuration({'window_size_sec':float(0.5)}) 
-        rospy.loginfo('Returned from update_configuration')
+        # rospy.loginfo('Setting window_size_sec to ' + str(0.5)) 
+        # self.dyn_reconf.update_configuration({'window_size_sec':float(0.5)}) 
+        # rospy.loginfo('Returned from update_configuration')
 
         try:
             self.resp1 = self.set_3d_auto_mode(mode=self.mode)
@@ -112,15 +112,15 @@ class RCVMPilotClient:
 
    
     def get_rpy_of_imu_in_global(self):
-        self.listener.waitForTransform('/latest_fix', '/aqua_base', rospy.Time(0), rospy.Duration(4))
+        self.listener.waitForTransform('/base_link', '/odom', rospy.Time(0), rospy.Duration(4))
         (position_of_imu_in_global, rotation_from_imu_to_global) = \
-            self.listener.lookupTransform('/latest_fix', '/aqua_base', rospy.Time(0))
+            self.listener.lookupTransform('/base_link', '/odom', rospy.Time(0))
         rpy_from_imu_to_global = tf.transformations.euler_from_quaternion(rotation_from_imu_to_global)
         return rpy_from_imu_to_global
 
 
     def depth_callback(self, msg):
-        self.current_depth = msg.data
+        self.current_depth = msg.altitude
 
     def do_straight_line(self, dt_in_sec, target_angles_in_deg, target_depth, vx, vz):
     

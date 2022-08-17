@@ -1,0 +1,7 @@
+<launch>
+    <group ns="loco/proteus/">
+        <param name="rcvm/kineme_control_mode" type="string" value="relative" ></param>
+        <param name="rcvm/angle_diff_threshold" type="int" value="5" ></param>
+        <node name="loco_rcvm_server" pkg="proteus_loco_rcvm" type="loco_rcvm_server.py" respawn="true" output="screen"></node>
+    </group>
+</launch>
