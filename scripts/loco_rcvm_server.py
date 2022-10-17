@@ -91,9 +91,11 @@ def execute_quantity(req, kineme):
             sleep(knode.duration.seconds)
         elif type(knode) == KNodeQuantity:
             if knode.quantity.display_on == 'heave':
-                quant = req.quantity
                 depth_change = knode.quantity.amount * req.quantity
                 rpc.do_relative_depth_change(depth_change, 0, 0.3)
+            elif knode.quantity.display_on == 'pitch':
+                pitch_angle = knode.quantity.amount * req.quantity
+                rpc.do_relative_angle_change((0, pitch_angle, 0), rpc.current_depth, 0, 0, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds)
         else:
             return False
     return True

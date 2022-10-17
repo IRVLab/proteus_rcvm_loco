@@ -72,7 +72,7 @@
             <velocity surge="0.5" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
         </knode-abs>
-        <knode-abs step="5" description="Forward">
+        <knode-abs step="5" description="Backward">
             <orientation roll="0" pitch="0" yaw="0"></orientation>
             <velocity surge="-0.5" sway="0" heave="0"></velocity>
             <duration seconds="1"></duration>
@@ -164,7 +164,7 @@
             <duration seconds="1"></duration>
         </knode-pause>
         <knode-abs step="5" description="Cock head">
-            <orientation roll="20" pitch="10" yaw="0"></orientation>
+            <orientation roll="0" pitch="10" yaw="10"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
         </knode-abs>
@@ -172,7 +172,7 @@
             <duration seconds="1"></duration>
         </knode-pause>
         <knode-abs step="7" description="Back to center">
-            <orientation roll="-20" pitch="-10" yaw="0"></orientation>
+            <orientation roll="0" pitch="-10" yaw="-10"></orientation>
             <velocity surge="0" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
         </knode-abs>
@@ -382,60 +382,85 @@
     <kineme name="Which Way" id="which_way">
         <knode-abs step="0" description="">
             <orientation roll="0" pitch="0" yaw="30"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
+            <velocity surge="-0.2" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
         </knode-abs>
         <knode-abs step="1" description="">
-            <orientation roll="0" pitch="0" yaw="-60"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
+            <orientation roll="0" pitch="0" yaw="-30"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
         </knode-abs>
         <knode-abs step="2" description="">
-            <orientation roll="0" pitch="0" yaw="30"></orientation>
-            <velocity surge="0" sway="0" heave="0"></velocity>
+            <orientation roll="0" pitch="30" yaw="0"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
         </knode-abs>
-        <knode-depth step="3" description="Go down .5 meters">
-            <depth amount="-0.2" mode="relative"></depth>
-            <velocity surge="0" sway="0" heave="-0.2"></velocity>
+        <knode-abs step="3" description="">
+            <orientation roll="0" pitch="-30" yaw="0"></orientation>
+            <velocity surge="-0.2" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
-        </knode-depth>
-                <knode-depth step="3" description="Go down .5 meters">
-            <depth amount="0.2" mode="relative"></depth>
-            <velocity surge="0" sway="0" heave="0.2"></velocity>
+        </knode-abs>
+        <knode-abs step="4" description="">
+            <orientation roll="0" pitch="0" yaw="-30"></orientation>
+            <velocity surge="-0.2" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
-        </knode-depth>
+        </knode-abs>
+        <knode-abs step="5" description="">
+            <orientation roll="0" pitch="0" yaw="30"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
+            <duration seconds="2"></duration>
+        </knode-abs>
+        <knode-abs step="6" description="">
+            <orientation roll="0" pitch="-30" yaw="0"></orientation>
+            <velocity surge="0.2" sway="0" heave="0"></velocity>
+            <duration seconds="2"></duration>
+        </knode-abs>
+        <knode-abs step="7" description="">
+            <orientation roll="0" pitch="30" yaw="0"></orientation>
+            <velocity surge="-0.2" sway="0" heave="0"></velocity>
+            <duration seconds="2"></duration>
+        </knode-abs>    
     </kineme>
 
     <kineme name="Remaining Battery" id="battery_remaining">
         <knode-abs step="0" description="">
-            <orientation roll="0" pitch="0" yaw="180"></orientation>
-            <velocity surge="0.1" sway="0" heave="0"></velocity>
+            <orientation roll="0" pitch="-90" yaw="0"></orientation>
+            <velocity surge="0.0" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
         </knode-abs>
         <knode-abs step="1" description="">
-            <orientation roll="0" pitch="0" yaw="180"></orientation>
-            <velocity surge="0.1" sway="0" heave="0"></velocity>
+            <orientation roll="0" pitch="180" yaw="0"></orientation>
+            <velocity surge="0.0" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
         </knode-abs>
-        <knode-depth step="2" description="Go down .5 meters">
-            <depth amount="-0.5" mode="relative"></depth>
-            <velocity surge="0" sway="0" heave="-0.2"></velocity>
+        <knode-abs step="2" description="">
+            <orientation roll="0" pitch="-180" yaw="0"></orientation>
+            <velocity surge="0.0" sway="0" heave="0"></velocity>
             <duration seconds="2"></duration>
-        </knode-depth>
-        <knode-quant step="3" description="Go up an amount equivalent to the battery remaining">
-            <quantity display-on="heave" amount="0.5"></quantity>
+        </knode-abs>
+        <knode-abs step="3" description="">
+            <orientation roll="0" pitch="0" yaw="10"></orientation>
+            <velocity surge="0.0" sway="0" heave="0"></velocity>
+            <duration seconds="0.5"></duration>
+        </knode-abs>
+        <knode-abs step="4" description="">
+            <orientation roll="0" pitch="0" yaw="-10"></orientation>
+            <velocity surge="0.0" sway="0" heave="0"></velocity>
+            <duration seconds="0.5"></duration>
+        </knode-abs>
+        <knode-quant step="5" description="Go up an amount equivalent to the battery remaining">
+            <quantity display-on="pitch" amount="180"></quantity>
             <duration seconds="2"></duration>
         </knode-quant>
-        <knode-abs step="4" description="">
-            <orientation roll="0" pitch="0" yaw="180"></orientation>
-            <velocity surge="0.1" sway="0" heave="0"></velocity>
-            <duration seconds="2"></duration>
+        <knode-abs step="6" description="">
+            <orientation roll="0" pitch="0" yaw="10"></orientation>
+            <velocity surge="0.0" sway="0" heave="0"></velocity>
+            <duration seconds="0.5"></duration>
         </knode-abs>
-        <knode-abs step="5" description="">
-            <orientation roll="0" pitch="0" yaw="180"></orientation>
-            <velocity surge="0.1" sway="0" heave="0"></velocity>
-            <duration seconds="2"></duration>
+        <knode-abs step="7" description="">
+            <orientation roll="0" pitch="0" yaw="-10"></orientation>
+            <velocity surge="0.0" sway="0" heave="0"></velocity>
+            <duration seconds="0.5"></duration>
         </knode-abs>
     </kineme>
 </kinemes>
