@@ -9,7 +9,6 @@ from rcvm_autopilot_client import RCVMPilotClient
 
 import rospy
 from rosnode import get_node_names
-from rospy import service
 from tf.transformations import euler_from_quaternion
 import roslaunch
 import rosnode 
