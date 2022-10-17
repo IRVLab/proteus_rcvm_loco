@@ -449,7 +449,7 @@
             <duration seconds="0.5"></duration>
         </knode-abs>
         <knode-quant step="5" description="Go up an amount equivalent to the battery remaining">
-            <quantity display-on="pitch" amount="180"></quantity>
+            <quantity display-on="pitch" max="180" min="0"></quantity>
             <duration seconds="2"></duration>
         </knode-quant>
         <knode-abs step="6" description="">

@@ -58,11 +58,11 @@ class RCVMPilotClient:
         self.target_pose_pub = rospy.Publisher('/loco/target_pose', PoseStamped, queue_size=3)
         self.current_depth = 0
 
-        rospy.wait_for_service('/loco/set_3Dauto_mode')
+        rospy.wait_for_service('/loco/pilot/set_3Dauto_mode')
         # rospy.wait_for_message('/AP_filtered_depth', Float32)
         
         self.depth_sub = rospy.Subscriber("/mavros/vfr_hud", VFR_HUD, self.depth_callback)
-        self.set_3d_auto_mode = rospy.ServiceProxy('/loco/set_3Dauto_mode', SetAutopilotMode)
+        self.set_3d_auto_mode = rospy.ServiceProxy('/loco/pilot/set_3Dauto_mode', SetAutopilotMode)
         
         self.listener.waitForTransform('/odom', '/base_link', rospy.Time(0), rospy.Duration(4))
 
@@ -123,11 +123,14 @@ class RCVMPilotClient:
         self.current_depth = msg.altitude
 
     def do_straight_line(self, dt_in_sec, target_angles_in_deg, target_depth, vx, vz):
-    
-        if type(dt_in_sec) == int:
+        print("Doing a straight line for {}s at {} surge, {} heave".format(dt_in_sec, vx, vz))
+
+        if type(dt_in_sec) == int or type(dt_in_sec) == float:
             dt_in_sec = rospy.Duration(dt_in_sec)
         rate = rospy.Rate(10)
         started_at = rospy.Time.now()
+
+        
 
         #while (not rospy.is_shutdown()) and ((rospy.Time.now() - started_at).to_sec() < dt_in_sec):
         while (not rospy.is_shutdown()) and (rospy.Time.now() < (started_at + dt_in_sec)):
@@ -234,6 +237,11 @@ class RCVMPilotClient:
           print('angle diff: ', (abs(self.angle_diff(rpy_from_imu_to_global[0], target_angles[0]))*180/pi, 
                                 abs(self.angle_diff(rpy_from_imu_to_global[1], target_angles[1]))*180/pi, 
                                 abs(self.angle_diff(rpy_from_imu_to_global[2], target_angles[2]))*180/pi))
+
+        if rospy.Time.now() < finish:
+            print("Completed angle change.")
+        else:
+            print("Timed out...")
             
     def do_relative_depth_change(self, dz, vx, vz):
 

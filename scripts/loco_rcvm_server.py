@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#! /usr/bin/python
 
 import sys, math, threading, signal
 from time import sleep
@@ -46,7 +46,10 @@ def execute_trigger(req, kineme):
     rospy.loginfo('Executing trigger kineme %s'%(kineme.id))
     for knode in kineme.knodes:
         if type(knode) == KNodeAbsolute:
-            rpc.do_relative_angle_change((knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw), rpc.current_depth, knode.velocity.surge, knode.velocity.heave, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds)
+            if knode.orientation.roll == 0.0 and knode.orientation.pitch == 0.0 and knode.orientation.yaw == 0:
+                rpc.do_straight_line(knode.duration.seconds, (knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw),rpc.current_depth, knode.velocity.surge, knode.velocity.heave)
+            else:
+                rpc.do_relative_angle_change((knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw), rpc.current_depth, knode.velocity.surge, knode.velocity.heave, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds * 1.5)
         elif type(knode) == KNodeDepth:
             if knode.depth.mode == 'relative':
                 rpc.do_relative_depth_change(knode.depth.amount, knode.velocity.surge, knode.velocity.heave)
@@ -65,9 +68,12 @@ def execute_directional(req, kineme):
 
     for knode in kineme.knodes:
         if type(knode) == KNodeAbsolute:
-            rpc.do_relative_angle_change((knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw), rpc.current_depth, knode.position.x, knode.position.y, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds)
+            if knode.orientation.roll == 0.0 and knode.orientation.pitch == 0.0 and knode.orientation.yaw == 0:
+                rpc.do_straight_line(knode.duration.seconds, (knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw),rpc.current_depth, knode.velocity.surge, knode.velocity.heave)
+            else:
+                rpc.do_relative_angle_change((knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw), rpc.current_depth, knode.velocity.surge, knode.velocity.heave, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds * 1.5)
         elif type(knode) == KNodeDirectional:
-            rpc.do_relative_angle_change((rpc.RAD2DEG(orr[0]), rpc.RAD2DEG(orr[1]), rpc.RAD2DEG(orr[2])), rpc.current_depth, 0, 0, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds)
+            rpc.do_relative_angle_change((rpc.RAD2DEG(orr[0]), rpc.RAD2DEG(orr[1]), rpc.RAD2DEG(orr[2])), rpc.current_depth, 0, 0, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds * 1.5)
         elif type(knode) == KNodeDepth:
             if knode.depth.mode == 'relative':
                 rpc.do_relative_depth_change(knode.depth.amount, knode.velocity.surge, knode.velocity.heave)
@@ -83,7 +89,10 @@ def execute_target(req, kineme):
 def execute_quantity(req, kineme):
     for knode in kineme.knodes:
         if type(knode) == KNodeAbsolute:
-            rpc.do_relative_angle_change((knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw), rpc.current_depth, knode.velocity.surge, knode.velocity.heave, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds)
+            if knode.orientation.roll == 0.0 and knode.orientation.pitch == 0.0 and knode.orientation.yaw == 0:
+                rpc.do_straight_line(knode.duration.seconds, (knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw),rpc.current_depth, knode.velocity.surge, knode.velocity.heave)
+            else:
+                rpc.do_relative_angle_change((knode.orientation.roll, knode.orientation.pitch, knode.orientation.yaw), rpc.current_depth, knode.velocity.surge, knode.velocity.heave, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds * 1.5)
         elif type(knode) == KNodeDepth:
             if knode.depth.mode == 'relative':
                 rpc.do_relative_depth_change(knode.depth.amount, knode.velocity.surge, knode.velocity.heave)
@@ -95,7 +104,7 @@ def execute_quantity(req, kineme):
                 rpc.do_relative_depth_change(depth_change, 0, 0.3)
             elif knode.quantity.display_on == 'pitch':
                 pitch_angle = knode.quantity.amount * req.quantity
-                rpc.do_relative_angle_change((0, pitch_angle, 0), rpc.current_depth, 0, 0, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds)
+                rpc.do_relative_angle_change((0, pitch_angle, 0), rpc.current_depth, 0, 0, knode.duration.seconds, threshold=rcvm_params['angle_diff_threshold'], timeout=knode.duration.seconds * 1.5)
         else:
             return False
     return True
@@ -103,7 +112,7 @@ def execute_quantity(req, kineme):
 if __name__ == '__main__':
     rospy.loginfo('Initializing the LoCO RCVM server')
 
-    rcvm_params = rospy.get_param('rcvm/')
+    rcvm_params = {"angle_diff_threshold": 5.0}
 
     #Check if PROTEUS language server is up
     rospy.loginfo('Checking PROTEUS language server...')
@@ -151,7 +160,8 @@ if __name__ == '__main__':
                 k.set_call_type(symbols.get(s).get('call_type'))
                 break
 
-    # print(kinemes)
+    for key,kineme in kinemes.items():
+        print(key, kineme)
     
     # Setup service calls
     for key, kineme in kinemes.items():
