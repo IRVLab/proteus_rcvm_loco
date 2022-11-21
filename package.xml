@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>proteus_loco_rcvm</name>
+  <name>proteus_rcvm_loco</name>
   <version>0.0.0</version>
   <description>The proteus_loco_rcvm package</description>
 
