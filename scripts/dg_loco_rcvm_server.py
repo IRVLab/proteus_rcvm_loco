@@ -1,4 +1,4 @@
-#! /usr/bin/python
+#! /usr/bin/python3
 
 import sys, math, threading, signal
 from time import sleep
@@ -7,6 +7,7 @@ from math import pi
 import rospy
 from rosnode import get_node_names
 from loco_pilot.msg import Command
+from std_msgs.msg import Header
 
 import xml.etree.ElementTree as ET
 from proteus.kineme import Kineme, KNodeDeadGuess, KNodePause, KNodeQuantity
@@ -39,9 +40,10 @@ def execute_trigger(req, kineme):
     rospy.loginfo('Executing trigger kineme %s'%(kineme.id))
     for knode in kineme.knodes:
         #HACK
-        number_of_messages = knode.duration.seconds * 10
+        number_of_messages = int(knode.duration.seconds * 10)
         if type(knode) == KNodeDeadGuess:
             c = Command()
+            c.header = Header()
             c.throttle = knode.command.throttle
             c.pitch = knode.command.pitch
             c.yaw = knode.command.yaw
@@ -62,9 +64,10 @@ def execute_target(req, kineme):
 
 def execute_quantity(req, kineme):
     for knode in kineme.knodes:
-        number_of_messages = knode.duration.seconds * 10
+        number_of_messages = int(knode.duration.seconds * 10)
         if type(knode) == KNodeDeadGuess:
             c = Command()
+            c.header = Header()
             c.throttle = knode.command.throttle
             c.pitch = knode.command.pitch
             c.yaw = knode.command.yaw
