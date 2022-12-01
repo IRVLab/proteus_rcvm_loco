@@ -8,14 +8,10 @@ project(proteus_rcvm_loco)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
-  geometry_msgs
-  loco_pilot
-  message_generation
-  message_runtime
-  proteus
   rospy
-  std_msgs
-  std_srvs
+  loco_pilot
+  proteus
+  proteus_msgs
 )
 
 ## System dependencies are found with CMake's conventions

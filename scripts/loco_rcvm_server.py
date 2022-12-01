@@ -15,7 +15,7 @@ import rosnode
 
 import xml.etree.ElementTree as ET
 from proteus.kineme import Kineme, KNode, KNodeAbsolute, KNodePause, KNodeDepth, KNodeDirectional, KNodeQuantity
-from proteus.srv import SymbolTrigger, SymbolDirectional, SymbolTarget, SymbolQuantity
+from proteus_msgs.srv import SymbolTrigger, SymbolDirectional, SymbolTarget, SymbolQuantity
 
 rospy.init_node('loco_rcvm_server', argv=None, anonymous=True)
 

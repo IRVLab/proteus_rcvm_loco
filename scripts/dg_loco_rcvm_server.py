@@ -10,7 +10,7 @@ from loco_pilot.msg import Command
 
 import xml.etree.ElementTree as ET
 from proteus.kineme import Kineme, KNodeDeadGuess, KNodePause, KNodeQuantity
-from proteus.srv import SymbolTrigger, SymbolDirectional, SymbolTarget, SymbolQuantity
+from proteus_msgs.srv import SymbolTrigger, SymbolDirectional, SymbolTarget, SymbolQuantity
 
 rospy.init_node('dg_loco_rcvm_server', argv=None, anonymous=True)
 
