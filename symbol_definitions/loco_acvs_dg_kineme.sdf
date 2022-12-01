@@ -2,307 +2,303 @@
 <kinemes>
     <kineme name="Affirmative" id="affirmative">
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0" pitch="0.25" yaw="0"></loco-cmd>
-            <duration seconds="0.75"></duration>
+            <loco-cmd throttle="0" pitch="0.3" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-dg step="1" description="">
-            <loco-cmd throttle="0" pitch="-0.4" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0" pitch="-0.3" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0" pitch="0.4" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0" pitch="0.3" yaw="0"></loco-cmd>
+            <duration seconds="3"></duration>
         </knode-dg>
         <knode-dg step="3" description="">
-            <loco-cmd throttle="0" pitch="-0.25" yaw="0"></loco-cmd>
-            <duration seconds="0.75"></duration>
+            <loco-cmd throttle="0" pitch="-0.3" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
     </kineme>
 
     <kineme name="Negative" id="negative">        
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="-0.4"></loco-cmd>
-            <duration seconds="1"></duration>
-        </knode-dg>
-        <knode-dg step="0" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="0.25"></loco-cmd>
-            <duration seconds="0.75"></duration>
+            <loco-cmd throttle="-.1" pitch="0" yaw="0.3"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="1" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="-0.4"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0" pitch="0.1" yaw="-0.3"></loco-cmd>
+            <duration seconds="2.5"></duration>
         </knode-dg>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="0.4"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-.1" pitch="0" yaw="0.3"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-dg step="3" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="-0.25"></loco-cmd>
-            <duration seconds="0.75"></duration>
+            <loco-cmd throttle="0" pitch="0" yaw="-0.3"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
     </kineme>
 
     <kineme name="Attention" id="attention">
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="0.4"></loco-cmd>
-            <duration seconds="3"></duration>
+            <loco-cmd throttle="0" pitch="0.1" yaw="0.4"></loco-cmd>
+            <duration seconds="5"></duration>
         </knode-dg>
         <knode-pause step="1" description="">
             <duration seconds="1"></duration>
         </knode-pause>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="-0.4"></loco-cmd>
-            <duration seconds="3"></duration>
+            <loco-cmd throttle="0" pitch="0.1" yaw="0.4"></loco-cmd>
+            <duration seconds="4"></duration>
         </knode-dg>
     
     </kineme>
 
     <kineme name="Follow Me" id="follow_me">
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0.0" pitch="0.2" yaw="0.2"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-0.1" pitch="-0.2" yaw="-0.4"></loco-cmd>
+            <duration seconds="1"></duration>
         </knode-dg>
         <knode-dg step="1" description="">
-            <loco-cmd throttle="0" pitch="-0.2" yaw="-0.2"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-.1" pitch="0.3" yaw="0.4"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-pause step="2" description="">
-            <duration seconds="0.5"></duration>
+            <duration seconds="1"></duration>
         </knode-pause>
         <knode-dg step="3" description="">
-            <loco-cmd throttle="0.0" pitch="0.2" yaw="0.2"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-.1" pitch="-0.2" yaw="-0.4"></loco-cmd>
+            <duration seconds="1"></duration>
         </knode-dg>
         <knode-dg step="4" description="">
-            <loco-cmd throttle="0" pitch="-0.2" yaw="-0.2"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-.1" pitch="0.3" yaw="0.4"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-pause step="5" description="">
             <duration seconds="1"></duration>
         </knode-pause>
         <knode-dg step="6" description="">
-            <loco-cmd throttle="0.2" pitch="0" yaw="0.2"></loco-cmd>
-            <duration seconds="3"></duration>
+            <loco-cmd throttle="0.0" pitch="0" yaw="-0.4"></loco-cmd>
+            <duration seconds="6"></duration>
         </knode-dg>
         <knode-dg step="7" description="">
-            <loco-cmd throttle="0.4" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.3" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
     </kineme>
 
     <kineme name="Danger" id="danger">
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <loco-cmd throttle="0.3" pitch="0.1" yaw="0"></loco-cmd>
             <duration seconds="2"></duration>
         </knode-dg>
         <knode-pause step="1" description="">
             <duration seconds="1"></duration>
         </knode-pause>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="0.25"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-0.1" pitch="0" yaw="0.3"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-pause step="3" description="">
-            <duration seconds="1"></duration>
+            <duration seconds="2"></duration>
         </knode-pause>
         <knode-dg step="4" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="-0.3"></loco-cmd>
+            <loco-cmd throttle="-.1" pitch="0" yaw="-0.3"></loco-cmd>
+            <duration seconds="3"></duration>
+        </knode-dg>
+        <knode-pause step="5" description="">
+            <duration seconds="2"></duration>
+        </knode-pause>
+        <knode-dg step="6" description="">
+            <loco-cmd throttle="0" pitch="0" yaw="0.3"></loco-cmd>
             <duration seconds="1"></duration>
         </knode-dg>
-        <knode-dg step="5" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="0.25"></loco-cmd>
-            <duration seconds="0.5"></duration>
-        </knode-dg>
-        <knode-pause step="6" description="">
-            <duration seconds="0.25"></duration>
-        </knode-pause>
         <knode-dg step="7" description="">
-            <loco-cmd throttle="0.75" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="0.75"></duration>
+            <loco-cmd throttle="-0.5" pitch="0.1" yaw="0"></loco-cmd>
+            <duration seconds="4"></duration>
         </knode-dg>
         <knode-dg step="8" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="0.25"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-.1" pitch="0" yaw="0.4"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="9" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="-0.3"></loco-cmd>
-            <duration seconds="0.75"></duration>
+            <loco-cmd throttle="-.1" pitch="0" yaw="-0.4"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="10" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="0.3"></loco-cmd>
-            <duration seconds="0.75"></duration>
+            <loco-cmd throttle="-.1" pitch="0" yaw="0.4"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="11" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="-0.25"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-.1" pitch="0" yaw="-0.4"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
     </kineme>
 
     <kineme name="Malfunction" id="malfunction">
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0.1" pitch="0.1" yaw="-0.1"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle=".2" pitch=".2" yaw="-.2"></loco-cmd>
+            <duration seconds="1"></duration>
         </knode-dg>
         <knode-dg step="1" description="">
-            <loco-cmd throttle="-0.1" pitch="-0.1" yaw="0.1"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-.2" pitch="-.2" yaw=".2"></loco-cmd>
+            <duration seconds="1"></duration>
         </knode-dg>
         <knode-pause step="2" description="">
-            <duration seconds="0.5"></duration>
+            <duration seconds="1"></duration>
         </knode-pause>
         <knode-dg step="3" description="">
-            <loco-cmd throttle="0.1" pitch="-0.1" yaw="0.1"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle=".2" pitch="-.2" yaw=".2"></loco-cmd>
+            <duration seconds="1"></duration>
         </knode-dg>
         <knode-dg step="4" description="">
-            <loco-cmd throttle="-0.1" pitch="0.1" yaw="-0.1"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-.2" pitch=".2" yaw="-.2"></loco-cmd>
+            <duration seconds="1"></duration>
         </knode-dg>
         <knode-pause step="5" description="">
-            <duration seconds="0.5"></duration>
+            <duration seconds="1"></duration>
         </knode-pause>
         <knode-dg step="6" description="">
-            <loco-cmd throttle="0.1" pitch="0.1" yaw="0.1"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle=".2" pitch=".2" yaw=".2"></loco-cmd>
+            <duration seconds="1"></duration>
         </knode-dg>
         <knode-dg step="7" description="">
-            <loco-cmd throttle="-0.1" pitch="-0.1" yaw="-0.1"></loco-cmd>
-            <duration seconds="0.5"></duration>
+            <loco-cmd throttle="-.2" pitch="-.2" yaw="-.2"></loco-cmd>
+            <duration seconds="1"></duration>
         </knode-dg>
         <knode-pause step="8" description="">
-            <duration seconds="0.5"></duration>
+            <duration seconds=".1"></duration>
         </knode-pause>
         
     </kineme>
 
     <kineme name="Go Left" id="go_left">
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="0.2"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0" pitch="0" yaw="-0.2"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-pause step="1" description="">
-            <duration seconds="1"></duration>
+            <duration seconds="2"></duration>
         </knode-pause>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="3" description="">
-            <loco-cmd throttle="-0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.3" pitch="0.1" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-dg step="4" description="">
-            <loco-cmd throttle="0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="5" description="">
-            <loco-cmd throttle="-0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.3" pitch="0.1" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
     </kineme>
 
     <kineme name="Go Right" id="go_right">
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0" pitch="0" yaw="-0.2"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0" pitch="0" yaw="0.2"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-pause step="1" description="">
-            <duration seconds="1"></duration>
+            <duration seconds="2"></duration>
         </knode-pause>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="3" description="">
-            <loco-cmd throttle="-0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.3" pitch=".1" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-dg step="4" description="">
-            <loco-cmd throttle="0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="5" description="">
-            <loco-cmd throttle="-0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.3" pitch=".1" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
     </kineme>
 
     <kineme name="Go Forward" id="go_forward">
         <knode-dg step="0" description="">
             <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-pause step="1" description="">
-            <duration seconds="1"></duration>
+            <duration seconds="2"></duration>
         </knode-pause>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="3" description="">
-            <loco-cmd throttle="-0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.3" pitch=".1" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-dg step="4" description="">
-            <loco-cmd throttle="0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="5" description="">
-            <loco-cmd throttle="-0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.3" pitch=".1" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
     </kineme>
 
     <kineme name="Go Back" id="go_back">
         <knode-dg step="0" description="">
             <loco-cmd throttle="-0.2" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-pause step="1" description="">
-            <duration seconds="1"></duration>
+            <duration seconds="2"></duration>
         </knode-pause>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="3" description="">
-            <loco-cmd throttle="-0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.3" pitch=".1" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
         <knode-dg step="4" description="">
-            <loco-cmd throttle="0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="0.2" pitch="0" yaw="0"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="5" description="">
-            <loco-cmd throttle="-0.1" pitch="0" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.3" pitch=".1" yaw="0"></loco-cmd>
+            <duration seconds="2"></duration>
         </knode-dg>
     </kineme>
 
     <kineme name="Stay" id="stay">
         <knode-dg step="0" description="">
-            <loco-cmd throttle="0.2" pitch="0" yaw="0.2"></loco-cmd>
-            <duration seconds="6"></duration>
+            <loco-cmd throttle="0.2" pitch="0.15" yaw="0.4"></loco-cmd>
+            <duration seconds="7"></duration>
         </knode-dg>
         <knode-pause step="1" description="">
-            <duration seconds="1"></duration>
+            <duration seconds="3"></duration>
         </knode-pause>
         <knode-dg step="2" description="">
-            <loco-cmd throttle="0.2" pitch="0" yaw="-0.2"></loco-cmd>
-            <duration seconds="6"></duration>
+            <loco-cmd throttle="0.2" pitch="0.15" yaw="-0.5"></loco-cmd>
+            <duration seconds="7"></duration>
         </knode-dg>
         <knode-pause step="3" description="">
-            <duration seconds="1"></duration>
+            <duration seconds="2"></duration>
         </knode-pause>
     </kineme>
 
     <kineme name="Remaining Time" id="time_remaining">
         <knode-dg step="0" description="">
             <loco-cmd throttle="0" pitch="-0.3" yaw="0"></loco-cmd>
-            <duration seconds="3"></duration>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="1" description="">
-            <loco-cmd throttle="0.1" pitch="-0.05" yaw="0"></loco-cmd>
+            <loco-cmd throttle="0.1" pitch="-.05" yaw="0"></loco-cmd>
             <duration seconds="1"></duration>
         </knode-dg>
         <knode-dg step="2" description="">
@@ -314,12 +310,12 @@
             <duration seconds="3"></duration>
         </knode-quant>
         <knode-dg step="4" description="">
-            <loco-cmd throttle="0.1" pitch="-0.05" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.1" pitch="0" yaw="0.2"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
         <knode-dg step="5" description="">
-            <loco-cmd throttle="-0.1" pitch="-0.05" yaw="0"></loco-cmd>
-            <duration seconds="1"></duration>
+            <loco-cmd throttle="-0.1" pitch="0" yaw="0.2"></loco-cmd>
+            <duration seconds="1.5"></duration>
         </knode-dg>
     </kineme>
 </kinemes>
