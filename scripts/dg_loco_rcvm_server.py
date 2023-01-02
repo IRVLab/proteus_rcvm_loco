@@ -10,7 +10,7 @@ from loco_pilot.msg import Command
 from std_msgs.msg import Header
 
 import xml.etree.ElementTree as ET
-from proteus.kineme import Kineme, KNodeDeadGuess, KNodePause, KNodeQuantity
+from proteus.vector.rcvm import Kineme, KNodeDeadGuess, KNodePause, KNodeQuantity
 from proteus_msgs.srv import SymbolTrigger, SymbolDirectional, SymbolTarget, SymbolQuantity
 
 rospy.init_node('dg_loco_rcvm_server', argv=None, anonymous=True)
@@ -126,17 +126,16 @@ if __name__ == '__main__':
         kinemes[k.id] = k
 
     # Check for symbol matchup.
-    for s in symbols:
-        for key in kinemes:
-            k = kinemes[key]
-            if s == k.id:
-                rospy.loginfo("Found match beteween symbol %s and kineme %s, associating data."%(s, k.id))
-                rospy.logdebug("Call type: %s"%(symbols.get(s).get('call_type')))
-                k.set_call_type(symbols.get(s).get('call_type'))
+    for sname, s in symbols.items():
+        for key, k in kinemes.items():
+            if s['id'] == k.id:
+                rospy.loginfo(f"Found match beteween symbol {s['id']} and kineme {k.id}, associating data.")
+                rospy.logdebug(f"Call type: {s['input_required']}")
+                k.set_call_type(s['input_required'])
                 break
 
-    for key,kineme in kinemes.items():
-        print(key, kineme)
+    # for key,kineme in kinemes.items():
+    #     print(key, kineme)
     
     # Setup service calls
     for key, kineme in kinemes.items():
