@@ -41,7 +41,7 @@ def execute_trigger(req, kineme):
     total_dur = 0
     for knode in kineme.knodes:
         #HACK
-        total_dur += knod.duration.seconds
+        total_dur += knode.duration.seconds
         number_of_messages = int(knode.duration.seconds * 10)
         if type(knode) == KNodeDeadGuess:
             c = Command()
