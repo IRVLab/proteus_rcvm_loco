@@ -38,8 +38,10 @@ def service_cb(req, kineme):
 def execute_trigger(req, kineme):
     global cmd_queue
     rospy.loginfo('Executing trigger kineme %s'%(kineme.id))
+    total_dur = 0
     for knode in kineme.knodes:
         #HACK
+        total_dur += knod.duration.seconds
         number_of_messages = int(knode.duration.seconds * 10)
         if type(knode) == KNodeDeadGuess:
             c = Command()
@@ -52,6 +54,8 @@ def execute_trigger(req, kineme):
             cmd_queue.extend([None]*number_of_messages)
         else:
             return False
+
+    sleep(total_dur)
     return True
     
 # Executes kinemes which are directional called, meaning that there's directional information in the service call.
@@ -63,7 +67,9 @@ def execute_target(req, kineme):
     return False
 
 def execute_quantity(req, kineme):
+    total_dur = 0
     for knode in kineme.knodes:
+        total_dur += knode.duration.seconds
         number_of_messages = int(knode.duration.seconds * 10)
         if type(knode) == KNodeDeadGuess:
             c = Command()
@@ -84,6 +90,7 @@ def execute_quantity(req, kineme):
             cmd_queue.extend([c]*number_of_messages)
         else:
             return False
+    sleep(total_dur)
     return True
 
 if __name__ == '__main__':
